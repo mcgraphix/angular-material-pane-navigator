@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.0/angular-material.css" rel="stylesheet"/>
+    <link href="../src/pane-navigator.compiled.css" rel="stylesheet"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.0/angular-material.js"></script>
+    <script src="../src/pane-navigator.js"></script>
+</head>
+<body>
+
+<div ng-app="demo">
+
+    <div ng-controller="DemoCtrl as ctrl">
+        <div class="mgx-pane-navigator-container">
+            <div mgx-pane-navigator>
+                <div>
+                    <h1>Getting Started</h1>
+
+                    <p>Use the mgx-pane-navigator directive to created a collection of panes that you can
+                        swipe between. For this to work, the directive should be used inside an element that
+                        has CSS <code>position: absolute|relative|fixed</code> and <code>overflow:hidden</code> and a
+                        defined
+                        size.
+
+                    </p>
+
+                    <p>This is intended for mobile use, but click and drag for swiping left and right will
+                        work in the browser. Keep in mind that the normal click+drag behavior is to select text on the
+                        screen
+                        so you will need to account for that.</p>
+                </div>
+                <div><h1>Pane 2</h1></div>
+                <div ng-if="ctrl.viewState.pane3Visible"><h1>Pane 3</h1>
+
+                </div>
+                <div>
+                    <h1>Pane 4</h1>
+                    <h3>Where's Pane 3?</h3>
+                    <p>It is not shown initially due to an <code>ng-if</code> directive.
+                        <md-button ng-click="togglePane()">toggle its visibility</md-button>
+                    </p>
+                </div>
+                <div><h1>Pane 5</h1></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script>
+    angular.module("demo", ["ngMaterial", 'mgx.panenavigator'])
+            .controller("DemoCtrl", function ($scope) {
+                this.viewState = {pane3Visible: false};
+                var self = this;
+                $scope.togglePane = function() {
+                    self.viewState.pane3Visible = !self.viewState.pane3Visible;
+                }
+            })
+    ;
+</script>
+</body>
+</html>

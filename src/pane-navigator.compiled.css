@@ -1,0 +1,54 @@
+.mgx-pane-navigator-container {
+    /*this is required*/
+    overflow: hidden;
+    /*This needs to be fixed, absolute or relative*/
+    position:absolute;
+    width:100vw;
+    height: 100vh
+}
+.mgx-pane-navigator-container .mgx-pane-navigator {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 1s;
+    box-sizing: border-box;
+    z-index: 100;
+}
+.mgx-pane-navigator-container .mgx-pane-navigator > div {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border: 0px solid black;
+    transition: opacity 1s, transform 1s;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 101;
+}
+.mgx-pane-navigator-container ul.indicators {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    z-index: 102;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 1s;
+    position: absolute;
+}
+.mgx-pane-navigator-container ul.indicators li {
+    display: inline-block;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
+    transition: background-color 1s;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.mgx-pane-navigator-container ul.indicators li.active {
+    background-color: rgba(0, 0, 0, 0.5);
+}
